@@ -101,7 +101,7 @@ jobs:
         run: |
           echo "🔧 Processing downloaded files for splitting..."
       
-          LIMIT=$((90 * 1024 * 1024))  # 90MB
+          LIMIT=$((50 * 1024 * 1024))  # 90MB
       
           for FILE in downloads/*; do
             [ -f "$FILE" ] || continue
@@ -134,7 +134,7 @@ jobs:
               cd "downloads/$FOLDERNAME" || exit 1
       
               # Create multipart zip INSIDE the folder
-              zip -s 90m "${FOLDERNAME}.zip" "$BASENAME" -q
+              zip -s 50m "${FOLDERNAME}.zip" "$BASENAME" -q
       
               # Remove original file after successful zip
               rm -f "$BASENAME"
@@ -143,7 +143,7 @@ jobs:
       
               echo "✅ Multipart zip created in downloads/$FOLDERNAME/"
             else
-              echo "✅ File under 90MB → kept as single file"
+              echo "✅ File under 50MB → kept as single file"
             fi
           done
       
