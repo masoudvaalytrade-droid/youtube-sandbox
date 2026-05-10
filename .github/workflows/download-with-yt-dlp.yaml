@@ -97,7 +97,7 @@ jobs:
 
           echo "✅ Download finished"
           
-      - name: Split large files into 90MB chunks
+      - name: Split large files into 50MB chunks
         run: |
           echo "🔧 Processing downloaded files for splitting..."
       
